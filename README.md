@@ -1,1 +1,1 @@
-# Welcome to my website! GoogleClassroom3.0 User!!! Hmm dont know how to use github sites..
+# wavykid97.github.io/GoogleClassroom3.0/
