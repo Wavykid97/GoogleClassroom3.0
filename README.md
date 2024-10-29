@@ -1,1 +1,1 @@
-# wavykid97.github.io/GoogleClassroom3.0/
+# wavykid97.github.io
