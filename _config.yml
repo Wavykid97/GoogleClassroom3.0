@@ -3,21 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Google</title>
+    <title>Google Classroom 3.0</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 20px;
             background-color: #f0f0f0;
+            min-height: 100vh; /* Ensures body takes full height */
+            display: flex;
+            justify-content: center;
+            align-items: center; /* Centers container vertically */
         }
         .container {
             max-width: 800px;
-            margin: 0 auto;
             text-align: center;
         }
         h1 {
             color: #4285f4;
+            margin-bottom: 20px; /* Adds spacing below title */
         }
         .browser-buttons {
             margin: 20px 0;
@@ -31,14 +35,17 @@
             background-color: #4285f4;
             color: white;
             font-size: 16px;
+            transition: background-color 0.3s ease; /* Smooth hover effect */
         }
         button:hover {
             background-color: #3267d6;
         }
         .browser-image {
-            max-width: 500px;
+            max-width: 100%; /* Responsive width */
+            width: 500px; /* Default width */
             margin-top: 20px;
             display: none;
+            border-radius: 5px; /* Matches button style */
         }
     </style>
 </head>
@@ -60,34 +67,27 @@
     <script>
         function showBrowser(browser) {
             // Hide all images
-            document.querySelectorAll('.browser-image').forEach(img => {
-                img.style.display = 'none';
-            });
+            const images = document.querySelectorAll('.browser-image');
+            images.forEach(img => img.style.display = 'none');
 
             // Show selected browser image
-            document.getElementById(`${browser}-img`).style.display = 'block';
+            const selectedImg = document.getElementById(`${browser}-img`);
+            if (selectedImg) {
+                selectedImg.style.display = 'block';
+            }
 
             // Change tab title based on browser
-            switch(browser) {
-                case 'chrome':
-                    document.title = 'Google Chrome';
-                    break;
-                case 'firefox':
-                    document.title = 'Mozilla Firefox';
-                    break;
-                case 'edge':
-                    document.title = 'Microsoft Edge';
-                    break;
-                case 'safari':
-                    document.title = 'Apple Safari';
-                    break;
-            }
+            const titles = {
+                chrome: 'Google Chrome',
+                firefox: 'Mozilla Firefox',
+                edge: 'Microsoft Edge',
+                safari: 'Apple Safari'
+            };
+            document.title = titles[browser] || 'Google Classroom 3.0';
         }
 
-        // Show Chrome by default
-        window.onload = function() {
-            showBrowser('chrome');
-        }
+        // Show Chrome by default when page loads
+        window.addEventListener('load', () => showBrowser('chrome'));
     </script>
 </body>
 </html>
