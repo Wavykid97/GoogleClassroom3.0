@@ -1,5 +1,93 @@
-title: GoogleClassroom3.0
-Logo: docs/assets/images.png
-description: Youtuber | Content Creator
-#show_download: true
-theme: jekyll-theme-hacker
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        h1 {
+            color: #4285f4;
+        }
+        .browser-buttons {
+            margin: 20px 0;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #4285f4;
+            color: white;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #3267d6;
+        }
+        .browser-image {
+            max-width: 500px;
+            margin-top: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Google Classroom 3.0</h1>
+        <div class="browser-buttons">
+            <button onclick="showBrowser('chrome')">Chrome</button>
+            <button onclick="showBrowser('firefox')">Firefox</button>
+            <button onclick="showBrowser('edge')">Edge</button>
+            <button onclick="showBrowser('safari')">Safari</button>
+        </div>
+        <img id="chrome-img" class="browser-image" src="https://via.placeholder.com/500x300?text=Chrome+Browser" alt="Chrome Browser">
+        <img id="firefox-img" class="browser-image" src="https://via.placeholder.com/500x300?text=Firefox+Browser" alt="Firefox Browser">
+        <img id="edge-img" class="browser-image" src="https://via.placeholder.com/500x300?text=Edge+Browser" alt="Edge Browser">
+        <img id="safari-img" class="browser-image" src="https://via.placeholder.com/500x300?text=Safari+Browser" alt="Safari Browser">
+    </div>
+
+    <script>
+        function showBrowser(browser) {
+            // Hide all images
+            document.querySelectorAll('.browser-image').forEach(img => {
+                img.style.display = 'none';
+            });
+
+            // Show selected browser image
+            document.getElementById(`${browser}-img`).style.display = 'block';
+
+            // Change tab title based on browser
+            switch(browser) {
+                case 'chrome':
+                    document.title = 'Google Chrome';
+                    break;
+                case 'firefox':
+                    document.title = 'Mozilla Firefox';
+                    break;
+                case 'edge':
+                    document.title = 'Microsoft Edge';
+                    break;
+                case 'safari':
+                    document.title = 'Apple Safari';
+                    break;
+            }
+        }
+
+        // Show Chrome by default
+        window.onload = function() {
+            showBrowser('chrome');
+        }
+    </script>
+</body>
+</html>
